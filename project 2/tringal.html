@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Triangle Validity Checker</title>
+</head>
+<body>
+  <h2>Check if a Triangle is Valid</h2>
+
+  <input type="number" id="angle1" placeholder="Angle 1 (°)"><br><br>
+  <input type="number" id="angle2" placeholder="Angle 2 (°)"><br><br>
+  <input type="number" id="angle3" placeholder="Angle 3 (°)"><br><br>
+
+  <button onclick="checkTriangle()">Check Triangle</button>
+
+  <p id="result"></p>
+
+  <script>
+    function checkTriangle() {
+      const angle1 = parseFloat(document.getElementById("angle1").value);
+      const angle2 = parseFloat(document.getElementById("angle2").value);
+      const angle3 = parseFloat(document.getElementById("angle3").value);
+
+      if (isNaN(angle1) || isNaN(angle2) || isNaN(angle3)) {
+        document.getElementById("result").textContent = "Please enter all three angles.";
+        return;
+      }
+
+      const sum = angle1 + angle2 + angle3;
+
+      if (sum === 180 && angle1 > 0 && angle2 > 0 && angle3 > 0) {
+        document.getElementById("result").textContent = "Yes, the angles form a valid triangle.";
+      } else {
+        document.getElementById("result").textContent = "No, the angles do not form a valid triangle.";
+      }
+    }
+  </script>
+</body>
+</html>

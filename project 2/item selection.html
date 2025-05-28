@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Vending Machine Simulator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 400px;
+      margin: 40px auto;
+      text-align: center;
+    }
+    select, button {
+      padding: 10px;
+      width: 100%;
+      margin: 10px 0;
+      font-size: 16px;
+    }
+    #result {
+      margin-top: 20px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Vending Machine</h2>
+
+  <label for="item">Select an item:</label>
+  <select id="item">
+    <option value="">--Choose--</option>
+    <option value="chips">Chips - $1.50</option>
+    <option value="soda">Soda - $2.00</option>
+    <option value="chocolate">Chocolate - $1.75</option>
+    <option value="water">Water - $1.00</option>
+  </select>
+
+  <button onclick="vendItem()">Get Item</button>
+
+  <p id="result"></p>
+
+  <script>
+    function vendItem() {
+      const item = document.getElementById("item").value;
+
+      const items = {
+        chips: { name: "Chips", price: 1.50 },
+        soda: { name: "Soda", price: 2.00 },
+        chocolate: { name: "Chocolate", price: 1.75 },
+        water: { name: "Water", price: 1.00 }
+      };
+
+      if (!item || !items[item]) {
+        document.getElementById("result").textContent = "Please select a valid item.";
+        return;
+      }
+
+      const selected = items[item];
+      document.getElementById("result").textContent = 
+        `You selected: ${selected.name}. Please insert $${selected.price.toFixed(2)}.`;
+    }
+  </script>
+
+</body>
+</html>

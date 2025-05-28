@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Grade Calculator</title>
+</head>
+<body>
+  <h2>Grade Calculator</h2>
+
+  <input type="number" id="percentage" placeholder="Enter your percentage" min="0" max="100"><br><br>
+
+  <button onclick="assignGrade()">Get Grade</button>
+
+  <p id="result"></p>
+
+  <script>
+    function assignGrade() {
+      const percent = parseFloat(document.getElementById("percentage").value);
+
+      if (isNaN(percent) || percent < 0 || percent > 100) {
+        document.getElementById("result").textContent = "Please enter a valid percentage (0–100).";
+        return;
+      }
+
+      let grade = "";
+
+      if (percent >= 90) {
+        grade = "A";
+      } else if (percent >= 80) {
+        grade = "B";
+      } else if (percent >= 70) {
+        grade = "C";
+      } else if (percent >= 60) {
+        grade = "D";
+      } else {
+        grade = "F";
+      }
+
+      document.getElementById("result").textContent = `Your grade is: ${grade}`;
+    }
+  </script>
+</body>
+</html>

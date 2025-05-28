@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>AQI Health Message</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 40px;
+      max-width: 500px;
+    }
+    input {
+      padding: 8px;
+      width: 100%;
+      margin-bottom: 16px;
+    }
+    button {
+      padding: 10px;
+      font-size: 16px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    p#result {
+      margin-top: 20px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Air Quality Index Checker</h2>
+
+  <input type="number" id="aqi" placeholder="Enter AQI value (0 - 500)" min="0" max="500">
+  <button onclick="checkAQI()">Check Health Message</button>
+
+  <p id="result"></p>
+
+  <script>
+    function checkAQI() {
+      const aqi = parseInt(document.getElementById("aqi").value);
+      let message = "";
+
+      if (isNaN(aqi) || aqi < 0 || aqi > 500) {
+        message = "Please enter a valid AQI between 0 and 500.";
+      } else if (aqi <= 50) {
+        message = "Good – Air quality is considered satisfactory.";
+      } else if (aqi <= 100) {
+        message = "Moderate – Acceptable, but may be a concern for sensitive people.";
+      } else if (aqi <= 150) {
+        message = "Unhealthy for Sensitive Groups – Active children and adults, and people with respiratory disease, should limit outdoor exertion.";
+      } else if (aqi <= 200) {
+        message = "Unhealthy – Everyone may begin to experience health effects.";
+      } else if (aqi <= 300) {
+        message = "Very Unhealthy – Health warnings of emergency conditions.";
+      } else {
+        message = "Hazardous – Health alert: everyone may experience more serious health effects.";
+      }
+
+      document.getElementById("result").textContent = message;
+    }
+  </script>
+
+</body>
+</html>

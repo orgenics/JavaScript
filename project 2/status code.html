@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>User Status Checker</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 400px;
+      margin: 40px auto;
+    }
+    input, button {
+      width: 100%;
+      padding: 10px;
+      margin: 8px 0;
+      font-size: 16px;
+    }
+    #result {
+      margin-top: 20px;
+      font-weight: bold;
+      color: #007bff;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>User Status Checker</h2>
+
+  <input type="number" id="status" placeholder="Enter status code (1 = Online, 0 = Offline)">
+  <button onclick="checkStatus()">Check Status</button>
+
+  <p id="result"></p>
+
+  <script>
+    function checkStatus() {
+      const statusCode = parseInt(document.getElementById("status").value);
+      let message = "";
+
+      message = statusCode === 1
+        ? "User is ONLINE"
+        : statusCode === 0
+        ? "User is OFFLINE"
+        : "Invalid status code. Use 1 for Online, 0 for Offline.";
+
+      document.getElementById("result").textContent = message;
+    }
+  </script>
+
+</body>
+</html>

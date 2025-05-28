@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Product Code to Name</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 400px;
+      margin: 40px auto;
+    }
+    input {
+      width: 100%;
+      padding: 8px;
+      margin: 10px 0;
+    }
+    button {
+      padding: 10px;
+      width: 100%;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    #result {
+      margin-top: 20px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Find Product Name by Code</h2>
+
+  <input type="text" id="productCode" placeholder="Enter Product Code (e.g., P101)">
+  <button onclick="getProductName()">Search</button>
+
+  <p id="result"></p>
+
+  <script>
+    function getProductName() {
+      const code = document.getElementById("productCode").value.trim().toUpperCase();
+      
+      // Product code mapping
+      const products = {
+        "P101": "Wireless Mouse",
+        "P102": "Gaming Keyboard",
+        "P103": "HD Monitor",
+        "P104": "External Hard Drive",
+        "P105": "Bluetooth Earbuds"
+      };
+
+      const result = products[code];
+
+      document.getElementById("result").textContent = result 
+        ? `Product Name: ${result}` 
+        : "Product code not found.";
+    }
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Day of the Week Finder</title>
+</head>
+<body>
+  <h2>Find Day of the Week</h2>
+
+  <input type="number" id="dayNumber" placeholder="Enter a number (1-7)" min="1" max="7"><br><br>
+
+  <button onclick="showDay()">Show Day</button>
+
+  <p id="result"></p>
+
+  <script>
+    function showDay() {
+      const dayNum = parseInt(document.getElementById("dayNumber").value);
+      const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+
+      if (dayNum >= 1 && dayNum <= 7) {
+        document.getElementById("result").textContent = `Day: ${days[dayNum - 1]}`;
+      } else {
+        document.getElementById("result").textContent = "Please enter a number between 1 and 7.";
+      }
+    }
+  </script>
+</body>
+</html>
