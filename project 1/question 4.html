@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Gross Salary Calculator</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #56ccf2, #2f80ed);
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0;
+    }
+
+    .calculator {
+      background: #fff;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      max-width: 400px;
+      width: 100%;
+      text-align: center;
+    }
+
+    h2 {
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    input[type="number"] {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-size: 16px;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    #result {
+      margin-top: 20px;
+      background: #e3f2fd;
+      padding: 15px;
+      border-left: 5px solid #2196f3;
+      border-radius: 8px;
+      font-size: 16px;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="calculator">
+    <h2>Gross Salary Calculator</h2>
+    <input type="number" id="baseSalary" placeholder="Enter Base Salary in ₹">
+    <button onclick="calculateGross()">Calculate</button>
+    <div id="result"></div>
+  </div>
+
+  <script>
+    function calculateGross() {
+      let base = parseFloat(document.getElementById("baseSalary").value);
+
+      if (isNaN(base) || base < 0) {
+        document.getElementById("result").innerHTML = "Please enter a valid base salary.";
+        return;
+      }
+
+      // Percentages
+      let hra = base * 0.10; // 10%
+      let da = base * 0.05;  // 5%
+      let ta = base * 0.08;  // 8%
+
+      let gross = base + hra + da + ta;
+
+      document.getElementById("result").innerHTML = `
+        <strong>Gross Salary: ₹${gross.toFixed(2)}</strong><br>
+        (Base: ₹${base.toFixed(2)}, HRA: ₹${hra.toFixed(2)}, DA: ₹${da.toFixed(2)}, TA: ₹${ta.toFixed(2)})
+      `;
+    }
+  </script>
+
+</body>
+</html>

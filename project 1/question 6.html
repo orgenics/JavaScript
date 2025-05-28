@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Triangle Area Calculator</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #c9ffbf, #ffafbd);
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0;
+    }
+
+    .calculator {
+      background: #fff;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      max-width: 400px;
+      width: 100%;
+      text-align: center;
+    }
+
+    h2 {
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    input[type="number"] {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-size: 16px;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      background-color: #8e24aa;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    button:hover {
+      background-color: #6a1b9a;
+    }
+
+    #result {
+      margin-top: 20px;
+      background: #f3e5f5;
+      padding: 15px;
+      border-left: 5px solid #ab47bc;
+      border-radius: 8px;
+      font-size: 16px;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="calculator">
+    <h2>Triangle Area Calculator</h2>
+    <input type="number" id="base" placeholder="Enter Base (b)">
+    <input type="number" id="height" placeholder="Enter Height (h)">
+    <button onclick="calculateArea()">Calculate Area</button>
+    <div id="result"></div>
+  </div>
+
+  <script>
+    function calculateArea() {
+      let base = parseFloat(document.getElementById("base").value);
+      let height = parseFloat(document.getElementById("height").value);
+
+      if (isNaN(base) || isNaN(height) || base <= 0 || height <= 0) {
+        document.getElementById("result").innerHTML = "Please enter valid positive numbers for base and height.";
+        return;
+      }
+
+      let area = 0.5 * base * height;
+
+      document.getElementById("result").innerHTML =
+        `Area of Triangle with base ${base} and height ${height} is <strong>${area.toFixed(2)} square units</strong>.`;
+    }
+  </script>
+
+</body>
+</html>

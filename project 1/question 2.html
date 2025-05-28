@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Swap Two Variables</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to right, #83a4d4, #b6fbff);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .container {
+      background-color: #fff;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 400px;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    label {
+      font-weight: bold;
+      margin-top: 10px;
+      display: block;
+      color: #444;
+    }
+
+    input[type="text"] {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 16px;
+      transition: border 0.3s;
+    }
+
+    input[type="text"]:focus {
+      border-color: #007bff;
+      outline: none;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      background: #007bff;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    button:hover {
+      background: #0056b3;
+    }
+
+    #result {
+      margin-top: 20px;
+      padding: 15px;
+      background-color: #e9f7fe;
+      border-left: 5px solid #007bff;
+      border-radius: 8px;
+      font-size: 16px;
+      color: #333;
+    }
+
+    @media (max-width: 500px) {
+      .container {
+        padding: 20px;
+      }
+
+      button {
+        font-size: 15px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h2>Swap Two Variables</h2>
+
+    <label for="a">Enter value for A:</label>
+    <input type="text" id="a" placeholder="Value A">
+
+    <label for="b">Enter value for B:</label>
+    <input type="text" id="b" placeholder="Value B">
+
+    <button onclick="swapValues()">Swap</button>
+
+    <div id="result"></div>
+  </div>
+
+  <script>
+    function swapValues() {
+      let a = document.getElementById("a").value;
+      let b = document.getElementById("b").value;
+
+      // Swapping logic
+      let temp = a;
+      a = b;
+      b = temp;
+
+      document.getElementById("result").innerHTML =
+        `<strong>After Swapping:</strong><br>A = ${a}<br>B = ${b}`;
+    }
+  </script>
+
+</body>
+</html>
