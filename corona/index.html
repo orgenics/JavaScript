@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Corona Report Table</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #f7971e, #ffd200);
+            min-height: 100vh;
+            padding: 40px 20px;
+            color: #333;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 36px;
+            font-weight: bold;
+            color: #222;
+        }
+
+        table {
+            width: 100%;
+            max-width: 900px;
+            margin: auto;
+            border-collapse: collapse;
+            background-color: rgba(255, 255, 255, 0.95);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        thead {
+            background-color: #333;
+            color: #fff;
+        }
+
+        th,
+        td {
+            padding: 15px;
+            text-align: center;
+            font-size: 16px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        tbody tr:hover {
+            background-color: #ffeaa7;
+            transition: background-color 0.3s ease;
+        }
+
+        th {
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Corona Report Table</h2>
+    <table border="1" cellpadding="10">
+        <thead>
+            <tr>
+                <th>Country</th>
+                <th>Cases</th>
+                <th>Recovered</th>
+                <th>Deaths</th>
+                <th>Active</th>
+            </tr>
+        </thead>
+        <tbody id="detashow"></tbody>
+    </table>
+
+    <script>
+        const coronaData = [
+            {
+                "country": "USA",
+                "cases": 107593281,
+                "recovered": 0,
+                "deaths": 1171330,
+                "active": 106421951
+            },
+            {
+                "country": "India",
+                "cases": 44997784,
+                "recovered": 44450876,
+                "deaths": 531903,
+                "active": 4
+            },
+            {
+                "country": "France",
+                "cases": 40111379,
+                "recovered": 39839892,
+                "deaths": 167985,
+                "active": 1502
+            },
+            {
+                "country": "Germany",
+                "cases": 38536597,
+                "recovered": 38014600,
+                "deaths": 178891,
+                "active": 1106
+            },
+            {
+                "country": "Brazil",
+                "cases": 37889850,
+                "recovered": 36677801,
+                "deaths": 707849,
+                "active": 504
+            }
+        ];
+
+        let tableRows = "";
+        coronaData.forEach((item) => {
+            tableRows += `
+        <tr>
+          <td>${item.country}</td>
+          <td>${item.cases}</td>
+          <td>${item.recovered}</td>
+          <td>${item.deaths}</td>
+          <td>${item.active}</td>
+        </tr>
+      `;
+        });
+
+        document.getElementById("detashow").innerHTML = tableRows;
+    </script>
+</body>
+
+</html>

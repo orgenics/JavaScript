@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Singham Movies Table</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #ffecd2, #fcb69f);
+            margin: 0;
+            padding: 40px 20px;
+        }
+
+        h2 {
+            text-align: center;
+            font-size: 36px;
+            color: #333;
+            margin-bottom: 30px;
+        }
+
+        table {
+            width: 100%;
+            max-width: 1000px;
+            margin: auto;
+            border-collapse: collapse;
+            background-color: #fff;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        thead {
+            background-color: #333;
+            color: #fff;
+        }
+
+        th,
+        td {
+            padding: 14px;
+            text-align: center;
+            border-bottom: 1px solid #eee;
+        }
+
+        img {
+            width: 80px;
+            height: auto;
+            border-radius: 5px;
+        }
+
+        tr:hover {
+            background-color: #fef3c7;
+            transition: 0.3s;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2> Singham Movie Collection</h2>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Poster</th>
+                <th>Title</th>
+                <th>Year</th>
+                <th>Type</th>
+            </tr>
+        </thead>
+        <tbody id="detashow"></tbody>
+    </table>
+
+    <script>
+        const movieData = {
+            "Search": [
+                {
+                    "Title": "Singham Again",
+                    "Year": "2024",
+                    "imdbID": "tt11976134",
+                    "Type": "movie",
+                    "Poster": "https://m.media-amazon.com/images/M/MV5BMjQzZDExZDEtYjAxYy00ZGVhLWE4YWItNTVkZjA5ZjVjZWM3XkEyXkFqcGc@._V1_SX300.jpg"
+                },
+                {
+                    "Title": "Singham",
+                    "Year": "2011",
+                    "imdbID": "tt1948150",
+                    "Type": "movie",
+                    "Poster": "https://m.media-amazon.com/images/M/MV5BYjlkNjdlOGItYjlmNC00ZmM3LWEzZTItYTgxMWUxNmEyYTMyXkEyXkFqcGc@._V1_SX300.jpg"
+                },
+                {
+                    "Title": "Singham Returns",
+                    "Year": "2014",
+                    "imdbID": "tt2309764",
+                    "Type": "movie",
+                    "Poster": "https://m.media-amazon.com/images/M/MV5BMjBjMjViNjMtYThhYi00YzQ5LTg3ODAtMTE1NTdlMTYzM2U4XkEyXkFqcGc@._V1_SX300.jpg"
+                },
+                {
+                    "Title": "Little Singham",
+                    "Year": "2018–",
+                    "imdbID": "tt11151836",
+                    "Type": "series",
+                    "Poster": "https://m.media-amazon.com/images/M/MV5BNjA1ZjBjNGItMzgyYS00Y2IzLWI2ZmEtOGZhMzMzYWJkMWJkXkEyXkFqcGc@._V1_SX300.jpg"
+                },
+                {
+                    "Title": "Singham",
+                    "Year": "2019",
+                    "imdbID": "tt8983210",
+                    "Type": "movie",
+                    "Poster": "https://m.media-amazon.com/images/M/MV5BYTQ0OWYwYmItOGM5Yy00YmU0LTlhY2UtNzAxYTcyZTZhNjQ0XkEyXkFqcGc@._V1_SX300.jpg"
+                },
+                {
+                    "Title": "Little Singham: Kaal Ka Badla",
+                    "Year": "2020",
+                    "imdbID": "tt12934616",
+                    "Type": "movie",
+                    "Poster": "https://m.media-amazon.com/images/M/MV5BMWRjNjQ1NjMtNzRjYS00YjA0LTliZGEtZGM1ZGExYzJiMGUxXkEyXkFqcGc@._V1_SX300.jpg"
+                },
+                {
+                    "Title": "Little Singham ki Black Shadow Se Takkar",
+                    "Year": "2021",
+                    "imdbID": "tt30454130",
+                    "Type": "movie",
+                    "Poster": "https://m.media-amazon.com/images/M/MV5BMDEwMTAxYTQtNWRjMC00OTUyLWI0NTYtZTBjNjVhOWUxZDM2XkEyXkFqcGc@._V1_SX300.jpg"
+                },
+                {
+                    "Title": "Mahabali Little Singham Khalbali Ka Raaz",
+                    "Year": "2022",
+                    "imdbID": "tt28079004",
+                    "Type": "series",
+                    "Poster": "https://m.media-amazon.com/images/M/MV5BZmIwNjc4Y2EtMmRmNy00Nzc1LTgwZjctOTE5ZWRiYjI3ZjViXkEyXkFqcGc@._V1_SX300.jpg"
+                },
+                {
+                    "Title": "Little Singham Samundar Ka Sikandar",
+                    "Year": "2021",
+                    "imdbID": "tt30454532",
+                    "Type": "movie",
+                    "Poster": "https://m.media-amazon.com/images/M/MV5BZDJlZTE5MTktMTBmMC00ZDU3LWE2MTEtYmRjZjFhMjhkMGVhXkEyXkFqcGc@._V1_SX300.jpg"
+                },
+                {
+                    "Title": "Singham Ki Gundai",
+                    "Year": "2019",
+                    "imdbID": "tt33091694",
+                    "Type": "movie",
+                    "Poster": "https://m.media-amazon.com/images/M/MV5BMDY1ODEwOTItNGM4My00NmZmLTlhMWEtMTc0ZWYxZDViOGNkXkEyXkFqcGc@._V1_SX300.jpg"
+                }
+            ]
+        };
+
+        let output = "";
+        movieData.Search.map((movie) => {
+            output += `
+        <tr>
+          <td><img src="${movie.Poster}"></td>
+          <td>${movie.Title}</td>
+          <td>${movie.Year}</td>
+          <td>${movie.Type}</td>
+        </tr>
+      `;
+        });
+
+        document.getElementById("detashow").innerHTML = output;
+    </script>
+
+</body>
+
+</html>

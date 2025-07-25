@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather Table</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.25);
+            color: #fff;
+        }
+
+        thead {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        th,
+        td {
+            padding: 16px;
+            text-align: center;
+            font-size: 16px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            color: black;
+        }
+
+        th {
+            font-weight: 600;
+            letter-spacing: 1px;
+            font-size: 18px;
+        }
+
+        tbody tr:hover {
+            background: rgba(255, 255, 255, 0.15);
+            transition: background 0.3s ease;
+        }
+
+        td:last-child {
+            font-size: 24px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>Weather Report Table</h2>
+    <table border="1" cellpadding="10">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>City</th>
+                <th>Icon</th>
+                <th>Temperature</th>
+                <th>Humidity</th>
+                <th>Wind Speed</th>
+                <th>Condition</th>
+
+            </tr>
+        </thead>
+        <tbody id="detashow"></tbody>
+    </table>
+
+    <script>
+        const weatherData = [
+            {
+                "id": 1,
+                "city": "Ahmedabad",
+                "temperature": 36,
+                "unit": "Celsius",
+                "humidity": 48,
+                "windSpeed": 12,
+                "condition": "Sunny",
+                "icon": "☀️"
+            },
+            {
+                "id": 2,
+                "city": "Surat",
+                "temperature": 34,
+                "unit": "Celsius",
+                "humidity": 55,
+                "windSpeed": 10,
+                "condition": "Partly Cloudy",
+                "icon": "⛅"
+            },
+            {
+                "id": 3,
+                "city": "Vadodara",
+                "temperature": 32,
+                "unit": "Celsius",
+                "humidity": 60,
+                "windSpeed": 15,
+                "condition": "Rainy",
+                "icon": "🌧️"
+            },
+            {
+                "id": 4,
+                "city": "Rajkot",
+                "temperature": 38,
+                "unit": "Celsius",
+                "humidity": 40,
+                "windSpeed": 8,
+                "condition": "Sunny",
+                "icon": "☀️"
+            },
+            {
+                "id": 5,
+                "city": "Mumbai",
+                "temperature": 33,
+                "unit": "Celsius",
+                "humidity": 70,
+                "windSpeed": 14,
+                "condition": "Cloudy",
+                "icon": "☁️"
+            },
+            {
+                "id": 6,
+                "city": "Delhi",
+                "temperature": 40,
+                "unit": "Celsius",
+                "humidity": 30,
+                "windSpeed": 18,
+                "condition": "Hot",
+                "icon": "🔥"
+            },
+            {
+                "id": 7,
+                "city": "Chennai",
+                "temperature": 35,
+                "unit": "Celsius",
+                "humidity": 65,
+                "windSpeed": 20,
+                "condition": "Thunderstorm",
+                "icon": "⛈️"
+            },
+            {
+                "id": 8,
+                "city": "Kolkata",
+                "temperature": 31,
+                "unit": "Celsius",
+                "humidity": 75,
+                "windSpeed": 9,
+                "condition": "Rainy",
+                "icon": "🌧️"
+            }
+        ];
+
+        let tbl = "";
+        weatherData.map((el) => {
+            tbl += `
+        <tr>
+          <td>${el.id}</td>
+          <td>${el.city}</td>
+           <td>${el.icon}</td>
+          <td>${el.temperature}°${el.unit}</td>
+          <td>${el.humidity}%</td>
+          <td>${el.windSpeed} km/h</td>
+          <td>${el.condition}</td>
+         
+        </tr>
+      `;
+        });
+
+        document.getElementById("detashow").innerHTML = tbl;
+    </script>
+
+</body>
+
+</html>
