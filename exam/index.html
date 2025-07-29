@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Recipe Book</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f8f8f8;
+      margin: 0;
+      padding: 20px;
+    }
+    h1 {
+      text-align: center;
+    }
+    form, .filters {
+      max-width: 700px;
+      margin: 20px auto;
+      background: #ffffff;
+      padding: 20px;
+      border-radius: 8px;
+    }
+    form input, form textarea, form select, form button {
+      width: 100%;
+      margin-top: 10px;
+      padding: 10px;
+      font-size: 1rem;
+    }
+    .recipe-list {
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    .recipe-card {
+      background: #fff;
+      border-left: 5px solid #333;
+      margin-bottom: 15px;
+      padding: 15px;
+      border-radius: 5px;
+    }
+    .recipe-actions {
+      margin-top: 10px;
+      text-align: right;
+    }
+    .recipe-actions button {
+      margin-left: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Recipe Book</h1>
+
+ 
+  <form id="recipeForm">
+    <input type="text" id="title" placeholder="Recipe Title" required />
+    <textarea id="ingredients" placeholder="Ingredients (comma-separated)" rows="3" required></textarea>
+    <textarea id="instructions" placeholder="Instructions" rows="4"></textarea>
+    <select id="cuisineType" required>
+      <option value="">Select Cuisine Type</option>
+      <option value="Indian">Indian</option>
+      <option value="Italian">Italian</option>
+      <option value="Chinese">Chinese</option>
+      <option value="Mexican">Mexican</option>
+      <option value="Other">Other</option>
+    </select>
+    <button type="submit">Add Recipe</button>
+  </form>
+
+  
+  <div class="filters">
+    <input type="text" id="searchTitle" placeholder="Search by title..." />
+    <input type="text" id="searchIngredients" placeholder="Search by ingredients..." />
+    <select id="filterCuisine">
+      <option value="">Filter by Cuisine</option>
+      <option value="Indian">Indian</option>
+      <option value="Italian">Italian</option>
+      <option value="Chinese">Chinese</option>
+      <option value="Mexican">Mexican</option>
+      <option value="Other">Other</option>
+    </select>
+  </div>
+
+ 
+  <div class="recipe-list" id="recipeList">
+   
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
